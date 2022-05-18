@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Thier is an Error 👿</h1>
+    <script>
+       let xml=new XMLHttpRequest();
+       const print=(data)=>{
+           console.log(data);
+       }
+       xml.onreadystatechange=function(){
+           switch(this.readyState){
+               case 0:print("Request is not initialized");break;
+               case 1:print("Server connection is established");break;
+               case 2:print("Request is received ");break;
+               case 3:print("Request is processing ");break;
+               case 4:print("Request is finished and response is ready "+this.responseText);break;
+           }
+       }
+       xml.open("get","file.txt",true);
+       xml.send();
+    </script>
+</body>
+</html>
